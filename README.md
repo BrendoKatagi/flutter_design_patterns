@@ -1,6 +1,6 @@
-# Exemplos de Arquitetura: MVC, MVP e MVVM
+# Exemplos de Arquitetura: MVC, MVP, MVVM e Bloc/Cubit
 
-Este repositório contém exemplos práticos de implementações das arquiteturas **MVC**, **MVP** e **MVVM** no Flutter. Ele foi criado para ajudar desenvolvedores a entender como essas arquiteturas podem ser aplicadas em aplicativos Flutter e como organizar melhor o código para diferentes cenários.
+Este repositório contém exemplos práticos de implementações das arquiteturas **MVC**, **MVP**, **MVVM** e **Bloc/Cubit** no Flutter. Ele foi criado para ajudar desenvolvedores a entender como essas arquiteturas podem ser aplicadas em aplicativos Flutter e como organizar melhor o código para diferentes cenários.
 
 ---
 
@@ -30,9 +30,19 @@ No padrão **MVP**, a lógica de apresentação é gerenciada pelo **Presenter**
 A arquitetura **MVVM** utiliza bindings reativos para conectar a **View** ao **ViewModel**:
 - **Model**: Gerencia os dados e a lógica de negócios.
 - **View**: Representa a interface do usuário e exibe os dados provenientes do ViewModel.
-- **ViewModel**: Expõe dados da lógica de negócios em um formato que a View consegue consumir facilmente. A comunicação é feita de forma reativa, utilizando ferramentas como Streams ou State Management.
+- **ViewModel**: Expõe dados da lógica de negócios em um formato que a View consegue consumir facilmente. A comunicação é feita de forma reativa, utilizando ferramentas como `ChangeNotifier` e `Provider`.
 
 ➡️ [Código de Exemplo - MVVM](https://github.com/BrendoKatagi/flutter_design_patterns/tree/main/lib/mvvm)
+
+---
+
+### 4. **Bloc/Cubit**
+O padrão **Bloc/Cubit** é uma abordagem de gerenciamento de estado que separa a lógica de negócios da interface do usuário:
+- **Cubit**: Uma versão simplificada do Bloc que usa funções em vez de eventos para alterar o estado.
+- **Bloc**: Utiliza fluxos de eventos e estados para gerenciar o estado da aplicação de forma reativa.
+- A UI se reconstrui em resposta às mudanças de estado emitidas pelo Cubit/Bloc.
+
+➡️ [Código de Exemplo - Bloc/Cubit](https://github.com/BrendoKatagi/flutter_design_patterns/tree/main/lib/bloc_cubit)
 
 ---
 
@@ -42,49 +52,72 @@ A arquitetura **MVVM** utiliza bindings reativos para conectar a **View** ao **V
 /
 ├── mvc/
 │   ├── data/
+│   │   ├── models/
+│   │   ├── repositories/
+│   │   └── services/
 │   ├── controllers/
 │   ├── views/
 │   └── main.dart
 ├── mvp/
 │   ├── data/
-│   ├── presenters/
-│   ├── views/
+│   │   ├── models/
+│   │   ├── repositories/
+│   │   └── services/
+│   ├── presentation/
+│   │   ├── presenters/
+│   │   └── views/
 │   └── main.dart
 ├── mvvm/
 │   ├── data/
-│   ├── viewmodels/
-│   ├── views/
+│   │   ├── models/
+│   │   ├── repositories/
+│   │   └── services/
+│   ├── presentation/
+│   │   ├── viewmodels/
+│   │   ├── views/
+│   │   └── widgets/
+│   └── main.dart
+├── bloc_cubit/
+│   ├── data/
+│   │   ├── models/
+│   │   ├── repositories/
+│   │   └── services/
+│   ├── presentation/
+│   │   ├── cubits/
+│   │   ├── screens/
+│   │   └── widgets/
 │   └── main.dart
 └── README.md
-
 ```
 
 ---
 
 ## Como Executar os Exemplos
-### Clone este repositório:
 
+### Clone este repositório:
 
 `git clone https://github.com/BrendoKatagi/flutter_design_patterns.git`
 
-Acesse a pasta do exemplo desejado (MVC, MVP ou MVVM):
+Acesse a pasta do exemplo desejado (MVC, MVP, MVVM ou Bloc/Cubit):
 
-`cd mvc`
+`cd mvvm`
 
 Execute o projeto:
 
 `flutter run`
 
 ## Objetivo
-### Este repositório tem como objetivo:
 
-Demonstrar como organizar projetos Flutter utilizando diferentes arquiteturas.
+Este repositório tem como objetivo:
 
-Ajudar desenvolvedores a entender as vantagens e desvantagens de cada abordagem.
-Servir como base para novos projetos.
+- Demonstrar como organizar projetos Flutter utilizando diferentes arquiteturas.
+- Ajudar desenvolvedores a entender as vantagens e desvantagens de cada abordagem.
+- Servir como base para novos projetos.
 
 ### Contribuições
+
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar um pull request com melhorias, novos exemplos ou dúvidas.
 
 ## Licença
+
 Este projeto está licenciado sob a licença MIT.

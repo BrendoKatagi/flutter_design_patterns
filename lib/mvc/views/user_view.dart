@@ -8,10 +8,10 @@ class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
 
   @override
-  _UserScreenState createState() => _UserScreenState();
+  UserScreenState createState() => UserScreenState();
 }
 
-class _UserScreenState extends State<UserScreen> {
+class UserScreenState extends State<UserScreen> {
   late UserController controller;
   bool isLoading = false;
   User? user;
@@ -63,7 +63,7 @@ class _UserScreenState extends State<UserScreen> {
                         ],
                       ),
                     )
-                  : const Center(child: const Text('No data')),
+                  : const Center(child: Text('No data')),
     );
   }
 }
